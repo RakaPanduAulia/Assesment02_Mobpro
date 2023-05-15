@@ -5,7 +5,9 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.ViewModelProvider
 import org.d3if3068.assesment001.databinding.ActivityMainBinding
+import org.d3if3068.assesment001.viewmodel.MainViewModel
 
 class MainActivity : AppCompatActivity() {
     private lateinit var editTextCelcius: EditText
@@ -13,27 +15,29 @@ class MainActivity : AppCompatActivity() {
     private lateinit var buttonConvert: Button
     private lateinit var textViewResult: TextView
     private lateinit var binding: ActivityMainBinding
+    private lateinit var viewModel: MainViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-//        R.layout.activity_main
 
         editTextCelcius = binding.editTextCelcius
         editTextFahrenheit = binding.editTextFahrenheit
         buttonConvert = binding.buttonConvert
         textViewResult = binding.textViewResult
 
-        buttonConvert.setOnClickListener {
-            val celcius = editTextCelcius.text.toString().toDoubleOrNull()
+        viewModel = ViewModelProvider(this).get(MainViewModel::class.java)
 
-            if (celcius == null) {
+        buttonConvert.setOnClickListener {
+            val celsius = editTextCelcius.text.toString().toDoubleOrNull()
+
+            if (celsius == null) {
                 textViewResult.text = "Masukkan suhu Celcius yang valid"
             } else {
-                val fahrenheit = (celcius * 9 / 5) + 32
+                val fahrenheit = viewModel.convertTemperature(celsius)
                 editTextFahrenheit.setText(fahrenheit.toString())
-                textViewResult.text = "$celcius derajat Celcius = $fahrenheit derajat Fahrenheit"
+                textViewResult.text = "$celsius derajat Celcius = $fahrenheit derajat Fahrenheit"
             }
         }
     }
