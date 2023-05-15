@@ -1,7 +1,6 @@
 package org.d3if3068.assesment001
 
 import android.os.Bundle
-import android.view.inputmethod.InputBinding
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
