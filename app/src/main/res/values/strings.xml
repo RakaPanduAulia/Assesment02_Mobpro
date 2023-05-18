@@ -2,4 +2,6 @@
     <string name="app_name">Celcius to Fahrenheit</string>
     <string name="Help">Help</string>
     <string name="help">Aplikasi ini adalah aplikasi yang dapat membantu user dalam mengubah nilai suhu dengan celcius menjadi fahrenheit.\n\ndibuat pada sejak tahun 2023.\n\noleh mahasiswa telkom university dengan nama Raka Pandu Aulia jurusan d3RPLA, sebagai bahan assesment MobPro.</string>
+    <string name="belum_ada_data">Belum ada data</string>
+    <string name="histori">Histori</string>
 </resources>

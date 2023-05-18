@@ -1,6 +1,7 @@
-package org.d3if3068.assesment001.ui
+package org.d3if3068.assesment001.ui.Converter
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.Menu
 import android.view.MenuInflater
@@ -13,12 +14,11 @@ import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import androidx.navigation.Navigation.findNavController
-import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
 import org.d3if3068.assesment001.R
 import org.d3if3068.assesment001.databinding.FragmentConverterBinding
-import org.d3if3068.assesment001.model.ConverterViewModel
+import org.d3if3068.assesment001.db.ConverterDb
+
 
 class ConverterFragment : Fragment() {
     private lateinit var editTextCelcius: EditText
@@ -26,7 +26,13 @@ class ConverterFragment : Fragment() {
     private lateinit var buttonConvert: Button
     private lateinit var textViewResult: TextView
     private lateinit var binding: FragmentConverterBinding
-    private lateinit var viewModel: ConverterViewModel
+//    private lateinit var viewModel: ConverterViewModel
+
+    private val viewModel: ConverterViewModel by lazy {
+        val db = ConverterDb.getInstance(requireContext())
+        val factory = ConverterViewModelFactory(db.dao)
+        ViewModelProvider(this, factory)[ConverterViewModel::class.java]
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -46,7 +52,13 @@ class ConverterFragment : Fragment() {
         buttonConvert = binding.buttonConvert
         textViewResult = binding.textViewResult
 
-        viewModel = ViewModelProvider(requireActivity()).get(ConverterViewModel::class.java)
+//        viewModel = ViewModelProvider(requireActivity()).get(ConverterViewModel::class.java)
+
+        viewModel.data.observe(viewLifecycleOwner, {
+            if (it == null) return@observe
+            Log.d("HitungFragment", "Data tersimpan. ID = ${it.id}")
+        })
+
 
         buttonConvert.setOnClickListener {
             val celcius = editTextCelcius.text.toString().toDoubleOrNull()

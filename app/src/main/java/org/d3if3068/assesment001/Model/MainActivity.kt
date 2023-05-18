@@ -1,4 +1,4 @@
-package org.d3if3068.assesment001
+package org.d3if3068.assesment001.Model
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
