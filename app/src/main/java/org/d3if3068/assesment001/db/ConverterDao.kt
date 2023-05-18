@@ -10,6 +10,6 @@ interface ConverterDao {
     @Insert
     fun insert(converter: ConverterEntity)
 
-    @Query("SELECT * FROM converter ORDER BY id DESC LIMIT 1")
-    fun getLastConverter(): LiveData<ConverterEntity?>
+    @Query("SELECT * FROM converter ORDER BY id DESC")
+    fun getLastConverter(): LiveData<List<ConverterEntity>>
 }

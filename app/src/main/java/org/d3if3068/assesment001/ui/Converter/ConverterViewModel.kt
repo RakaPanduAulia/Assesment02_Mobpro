@@ -12,7 +12,7 @@ import org.d3if3068.assesment001.db.ConverterEntity
 class ConverterViewModel(private val db: ConverterDao) : ViewModel() {
     val fahrenheitResult: MutableLiveData<Double> = MutableLiveData()
     var celciusInput: Double = 0.0
-    val data = db.getLastConverter()
+//    val data = db.getLastConverter()
 
     fun convertTemperature(celcius: Double) {
         celciusInput = celcius

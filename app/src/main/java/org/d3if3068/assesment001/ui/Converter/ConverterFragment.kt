@@ -15,6 +15,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 import org.d3if3068.assesment001.R
 import org.d3if3068.assesment001.databinding.FragmentConverterBinding
 import org.d3if3068.assesment001.db.ConverterDb
@@ -54,10 +55,10 @@ class ConverterFragment : Fragment() {
 
 //        viewModel = ViewModelProvider(requireActivity()).get(ConverterViewModel::class.java)
 
-        viewModel.data.observe(viewLifecycleOwner, {
-            if (it == null) return@observe
-            Log.d("HitungFragment", "Data tersimpan. ID = ${it.id}")
-        })
+//        viewModel.data.observe(viewLifecycleOwner, {
+//            if (it == null) return@observe
+//            Log.d("HitungFragment", "Data tersimpan. ID = ${it.id}")
+//        })
 
 
         buttonConvert.setOnClickListener {
@@ -75,6 +76,13 @@ class ConverterFragment : Fragment() {
             textViewResult.text =
                 "${viewModel.celciusInput} derajat Celcius = $fahrenheit derajat Fahrenheit"
         })
+
+        val buttonHistory: FloatingActionButton = binding.buttonHistory
+        buttonHistory.setOnClickListener {
+            findNavController().navigate(
+                R.id.action_hitungFragment_to_historiFragment
+            )
+        }
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
