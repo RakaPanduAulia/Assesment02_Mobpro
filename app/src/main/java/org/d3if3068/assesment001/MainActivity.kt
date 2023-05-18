@@ -5,7 +5,10 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
 import org.d3if3068.assesment001.databinding.ActivityMainBinding
+import org.d3if3068.assesment001.model.TemperatureConverterViewModel
 
 class MainActivity : AppCompatActivity() {
     private lateinit var editTextCelcius: EditText
@@ -13,17 +16,19 @@ class MainActivity : AppCompatActivity() {
     private lateinit var buttonConvert: Button
     private lateinit var textViewResult: TextView
     private lateinit var binding: ActivityMainBinding
+    private lateinit var viewModel: TemperatureConverterViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-//        R.layout.activity_main
 
         editTextCelcius = binding.editTextCelcius
         editTextFahrenheit = binding.editTextFahrenheit
         buttonConvert = binding.buttonConvert
         textViewResult = binding.textViewResult
+
+        viewModel = ViewModelProvider(this).get(TemperatureConverterViewModel::class.java)
 
         buttonConvert.setOnClickListener {
             val celcius = editTextCelcius.text.toString().toDoubleOrNull()
@@ -31,10 +36,13 @@ class MainActivity : AppCompatActivity() {
             if (celcius == null) {
                 textViewResult.text = "Masukkan suhu Celcius yang valid"
             } else {
-                val fahrenheit = (celcius * 9 / 5) + 32
-                editTextFahrenheit.setText(fahrenheit.toString())
-                textViewResult.text = "$celcius derajat Celcius = $fahrenheit derajat Fahrenheit"
+                viewModel.convertTemperature(celcius)
             }
         }
+
+        viewModel.fahrenheitResult.observe(this, Observer { fahrenheit ->
+            editTextFahrenheit.setText(fahrenheit.toString())
+            textViewResult.text = "${viewModel.celciusInput} derajat Celcius = $fahrenheit derajat Fahrenheit"
+        })
     }
 }
