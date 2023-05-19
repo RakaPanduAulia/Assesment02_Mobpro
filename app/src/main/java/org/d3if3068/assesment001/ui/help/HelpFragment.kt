@@ -1,4 +1,4 @@
-package org.d3if3068.assesment001.ui
+package org.d3if3068.assesment001.ui.help
 
 import androidx.fragment.app.Fragment
 import org.d3if3068.assesment001.R

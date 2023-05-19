@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="12dp">
+
+    <TextView
+        android:id="@+id/celcius_txt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@+id/fahrenheit"
+        app:layout_constraintTop_toTopOf="@+id/Celcius"
+        tools:text="23" />
+
+    <TextView
+        android:id="@+id/fahrenheit_txt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="@+id/celcius_txt"
+        app:layout_constraintTop_toBottomOf="@+id/celcius_txt"
+        tools:text="78" />
+
+    <TextView
+        android:id="@+id/kategoriTextView"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:background="@drawable/celciusicon"
+        android:gravity="center"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="I" />
+
+    <TextView
+        android:id="@+id/Celcius"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:text="Celcius :"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@+id/kategoriTextView"
+        app:layout_constraintTop_toTopOf="@+id/kategoriTextView" />
+
+    <TextView
+        android:id="@+id/notasiC"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="°"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@+id/celcius_txt"
+        app:layout_constraintTop_toTopOf="@+id/celcius_txt" />
+
+    <TextView
+        android:id="@+id/NotasiF"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="°"
+        app:layout_constraintStart_toEndOf="@+id/fahrenheit_txt"
+        app:layout_constraintTop_toBottomOf="@+id/celcius_txt" />
+
+    <TextView
+        android:id="@+id/fahrenheit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Fahrenheit :"
+        app:layout_constraintStart_toStartOf="@+id/Celcius"
+        app:layout_constraintTop_toBottomOf="@+id/Celcius" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

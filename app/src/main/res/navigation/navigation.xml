@@ -18,7 +18,7 @@
     </fragment>
     <fragment
         android:id="@+id/helpFragment"
-        android:name="org.d3if3068.assesment001.ui.HelpFragment"
+        android:name="org.d3if3068.assesment001.ui.help.HelpFragment"
         android:label="@string/Help"
         tools:layout="@layout/fragment_help" />
     <fragment

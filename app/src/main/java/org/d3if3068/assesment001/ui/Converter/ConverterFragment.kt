@@ -11,6 +11,7 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
+import androidx.core.app.ShareCompat
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
@@ -46,6 +47,7 @@ class ConverterFragment : Fragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        binding.shareButton.setOnClickListener { shareData() }
         super.onViewCreated(view, savedInstanceState)
 
         editTextCelcius = binding.editTextCelcius
@@ -53,7 +55,7 @@ class ConverterFragment : Fragment() {
         buttonConvert = binding.buttonConvert
         textViewResult = binding.textViewResult
 
-//        viewModel = ViewModelProvider(requireActivity()).get(ConverterViewModel::class.java)
+//       viewModel = ViewModelProvider(requireActivity()).get(ConverterViewModel::class.java)
 
 //        viewModel.data.observe(viewLifecycleOwner, {
 //            if (it == null) return@observe
@@ -83,6 +85,17 @@ class ConverterFragment : Fragment() {
                 R.id.action_hitungFragment_to_historiFragment
             )
         }
+    }
+
+    private fun shareData() {
+        val shareIntent = activity?.let {
+            val shareText = getString(R.string.bagikan_template, editTextCelcius.text, editTextFahrenheit.text)
+            ShareCompat.IntentBuilder.from(it)
+                .setText(shareText)
+                .setType("text/plain")
+                .intent
+        }
+        startActivity(shareIntent)
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
