@@ -12,4 +12,7 @@ interface ConverterDao {
 
     @Query("SELECT * FROM converter ORDER BY id DESC")
     fun getLastConverter(): LiveData<List<ConverterEntity>>
+
+    @Query("DELETE FROM converter")
+    fun clearAll()
 }
