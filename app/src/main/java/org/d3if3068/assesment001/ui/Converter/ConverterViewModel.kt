@@ -17,10 +17,10 @@ class ConverterViewModel(private val db: ConverterDao) : ViewModel() {
     val fahrenheitResult: MutableLiveData<Double> = MutableLiveData()
     var celciusInput: Double = 0.0
 
-    fun convertTemperature(celcius: Double) {
+    fun convertTemperature(celcius: Double): Double {
 //        celciusInput = celcius
-//        val fahrenheit = (celcius * 9 / 5) + 32
-//        fahrenheitResult.value = fahrenheit
+        val fahrenheit = (celcius * 9 / 5) + 32
+        fahrenheitResult.value = fahrenheit
 
         val dataConverter = ConverterEntity(
             celcius = celcius,
@@ -33,5 +33,11 @@ class ConverterViewModel(private val db: ConverterDao) : ViewModel() {
                 db.insert(dataConverter)
             }
         }
+        return fahrenheit
+
+    }
+    fun get(get: Float): Float {
+        val to = get
+        return to
     }
 }

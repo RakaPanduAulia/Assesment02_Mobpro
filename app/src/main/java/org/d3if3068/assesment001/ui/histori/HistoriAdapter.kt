@@ -42,8 +42,8 @@ class HistoriAdapter : ListAdapter<ConverterEntity, HistoriAdapter.ViewHolder>(D
             val fahrenheit = item.fahrenheit
             val celcius = item.celcius
 
-            celciusTxt.text = "input = $celcius"
-            fahrenheitTxt.text = "input = $fahrenheit"
+            celciusTxt.text = "$celcius"
+            fahrenheitTxt.text = "$fahrenheit"
         }
     }
 }

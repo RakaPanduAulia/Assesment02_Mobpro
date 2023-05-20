@@ -69,15 +69,20 @@ class ConverterFragment : Fragment() {
             if (celcius == null) {
                 textViewResult.text = "Masukkan suhu Celcius yang valid"
             } else {
-                viewModel.convertTemperature(celcius)
+                val test = viewModel.convertTemperature(celcius)
+
+                    textViewResult.text = "Hasil Fahrenheit : "+test.toString()+"°"
+
             }
         }
 
-        viewModel.fahrenheitResult.observe(viewLifecycleOwner, Observer { fahrenheit ->
-            editTextFahrenheit.setText(fahrenheit.toString())
-            textViewResult.text =
-                "${viewModel.celciusInput} derajat Celcius = $fahrenheit derajat Fahrenheit"
-        })
+
+
+//        viewModel.fahrenheitResult.observe(viewLifecycleOwner, Observer { fahrenheit ->
+//            editTextFahrenheit.setText(fahrenheit.toString())
+//            textViewResult.text =
+//                "${viewModel.celciusInput} derajat Celcius = $fahrenheit derajat Fahrenheit"
+//        })
 
         val buttonHistory: FloatingActionButton = binding.buttonHistory
         buttonHistory.setOnClickListener {
