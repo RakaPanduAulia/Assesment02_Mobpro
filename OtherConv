@@ -1,9 +1,9 @@
 [
-{"Judul" : "Konversi Celcius ke Fahrenheit : ", "Rumus" : "Fahrenheit = (Celcius × 9/5) + 32"},
-{"Judul" : "Konversi Celcius ke Reamur : ", "Rumus" : "Reamur = Celcius × 4/5"},
-{"Judul" : "Konversi Celcius ke Kelvin : ", "Rumus" : "Kelvin = Celcius + 273.15"},
-{"Judul" : "Konversi Celcius ke Rankine : ", "Rumus" : "Rankine = (Celcius + 273.15) × 9/5"},
-{"Judul" : "Konversi Celcius ke Newton : ", "Rumus" : "Newton = Celcius × 33/100"},
-{"Judul" : "Konversi Celcius ke Rømer : ", "Rømer = Celcius × 21/40 + 7.5"},
-{"Judul" : "Konversi Celcius ke Delisle : ", "Rumus" : "Delisle = (100 - Celcius) × 3/2"}
+{"judul" : "Konversi Celcius ke Fahrenheit : ", "rumus" : "Fahrenheit = (Celcius × 9/5) + 32", "gambar" : "Termometer"},
+{"judul" : "Konversi Celcius ke Reamur : ", "rumus" : "Reamur = Celcius × 4/5", "gambar" : "Termometer"},
+{"judul" : "Konversi Celcius ke Kelvin : ", "rumus" : "Kelvin = Celcius + 273.15", "gambar" : "Termometer"},
+{"judul" : "Konversi Celcius ke Rankine : ", "rumus" : "Rankine = (Celcius + 273.15) × 9/5", "gambar" : "Termometer"},
+{"judul" : "Konversi Celcius ke Newton : ", "rumus" : "Newton = Celcius × 33/100", "gambar" : "Termometer"},
+{"judul" : "Konversi Celcius ke Rømer : ", "rumus" : "Rømer = Celcius × 21/40 + 7.5", "gambar" : "Termometer"},
+{"judul" : "Konversi Celcius ke Delisle : ", "rumus" : "Delisle = (100 - Celcius) × 3/2", "gambar" : "Termometer"}
 ]
