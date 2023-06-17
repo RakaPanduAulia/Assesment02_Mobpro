@@ -1,0 +1,5 @@
+[
+{"Judul" : "Konversi Celcius ke Fahrenheit : ", "Rumus" : "Fahrenheit = (Celcius × 9/5) + 32"},
+{"Judul" : "Konversi Celcius ke Reamur : ", "Rumus" : "Reamur = Celcius × 4/5"},
+{"Judul" : "Konversi Celcius ke Kelvin : ", "Rumus" : "Kelvin = Celcius + 273.15"}
+]
