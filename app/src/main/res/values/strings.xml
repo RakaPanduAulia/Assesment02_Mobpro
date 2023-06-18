@@ -9,4 +9,6 @@
     <string name="bagikan_template">Celcius : %1$s °\nFahrenheit : %2$s °</string>
     <string name="NoData">Belum Ada Data</string>
     <string name="deleteHistori">Hapus Histori</string>
+    <string name="koneksi_error">Koneksi error</string>
+    <string name="List">Other Conversion</string>
 </resources>

@@ -15,6 +15,9 @@
         <action
             android:id="@+id/action_hitungFragment_to_historiFragment"
             app:destination="@id/historiFragment" />
+        <action
+            android:id="@+id/action_converterFragment_to_termometerFragment"
+            app:destination="@id/termometerFragment" />
     </fragment>
     <fragment
         android:id="@+id/helpFragment"
@@ -26,5 +29,9 @@
         android:name="org.d3if3068.assesment001.ui.histori.HistoriFragment"
         android:label="@string/histori"
         tools:layout="@layout/fragment_histori" />
+    <fragment
+        android:id="@+id/termometerFragment"
+        android:name="org.d3if3068.assesment001.TermometerFragment"
+        android:label="TermometerFragment" />
 
 </navigation>

@@ -115,6 +115,13 @@ class ConverterFragment : Fragment() {
             )
             return true
         }
+        else if (item.itemId == R.id.list_item) {
+            findNavController().navigate(
+                R.id.action_converterFragment_to_termometerFragment
+            )
+            return true
+        }
+
         return super.onOptionsItemSelected(item)
     }
 }
