@@ -16,9 +16,9 @@ import org.d3if3068.assesment001.Model.HasilConverter
 import org.d3if3068.assesment001.Model.hitungConverter
 import org.d3if3068.assesment001.db.ConverterDao
 import org.d3if3068.assesment001.db.ConverterEntity
-import org.d3if3068.assesment001.network.ApiStatus
 import org.d3if3068.assesment001.network.SuhuApi
 import org.d3if3068.assesment001.network.UpdateWorker
+import org.d3if3068.assesment001.network.ApiStatus
 import java.util.concurrent.TimeUnit
 
 class ConverterViewModel(private val db: ConverterDao) : ViewModel() {
@@ -31,20 +31,20 @@ class ConverterViewModel(private val db: ConverterDao) : ViewModel() {
     }
 
     private fun retrieveData() {
-        viewModelScope.launch (Dispatchers.IO) {
+        viewModelScope.launch(Dispatchers.IO) {
             status.postValue(ApiStatus.LOADING)
             try {
-//                val result = SuhuApi.service.getConv()
-//                Log.d("ConverterViewModel", "Success: $result")
-//                val response = SuhuApi.service.getConv()
-                data.postValue(SuhuApi.service.getConv())
+                val response = SuhuApi.service.getConv()
+                data.postValue(response.toString())
                 status.postValue(ApiStatus.SUCCESS)
             } catch (e: Exception) {
+                // Handle exception
                 Log.d("ConverterViewModel", "Failure: ${e.message}")
                 status.postValue(ApiStatus.FAILED)
             }
         }
     }
+
 
     val fahrenheitResult: MutableLiveData<Double> = MutableLiveData()
     var celciusInput: Double = 0.0

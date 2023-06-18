@@ -22,12 +22,15 @@ interface SuhuApiService {
     @GET("OtherConv")
     suspend fun getConv(): List<Termometer>
 }
+
 object SuhuApi {
     val service: SuhuApiService by lazy {
         retrofit.create(SuhuApiService::class.java)
     }
+
+    fun getImageUrl(gambar: String): String {
+        return "$BASE_URL/$gambar.png"
+    }
 }
 
-fun getConvUrl(imageId: String): String {
-    return SuhuApi.service.getConv()
-}
+enum class ApiStatus { LOADING, SUCCESS, FAILED }

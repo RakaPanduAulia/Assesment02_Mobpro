@@ -8,12 +8,14 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import org.d3if3068.assesment001.Model.Termometer
+import org.d3if3068.assesment001.network.SuhuApi
 
 class TermometerAdapter : RecyclerView.Adapter<TermometerAdapter.TermometerViewHolder>() {
     private val termometerList: MutableList<Termometer> = mutableListOf()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TermometerViewHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.item_listrumus, parent, false)
+        val view = LayoutInflater.from(parent.context)
+            .inflate(R.layout.item_listrumus, parent, false)
         return TermometerViewHolder(view)
     }
 
@@ -40,7 +42,10 @@ class TermometerAdapter : RecyclerView.Adapter<TermometerAdapter.TermometerViewH
         fun bind(termometer: Termometer) {
             judulTextView.text = termometer.judul
             rumusTextView.text = termometer.rumus
-            Glide.with(itemView.context).load(termometer.gambar).error(R.drawable.baseline_broken_image_24).into(gambarImageView)
+            Glide.with(itemView.context)
+                .load(SuhuApi.getImageUrl(termometer.gambar))
+                .error(R.drawable.baseline_broken_image_24)
+                .into(gambarImageView)
         }
     }
 }

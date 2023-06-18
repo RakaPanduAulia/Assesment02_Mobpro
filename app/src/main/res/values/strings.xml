@@ -5,10 +5,14 @@
     <string name="belum_ada_data">Belum ada data</string>
     <string name="histori">Histori</string>
     <string name="Share">SHARE</string>
-
+    <string name="channel_name">Updater</string>
+    <string name="channel_desc">Update data hewan otomatis</string>
     <string name="bagikan_template">Celcius : %1$s °\nFahrenheit : %2$s °</string>
     <string name="NoData">Belum Ada Data</string>
     <string name="deleteHistori">Hapus Histori</string>
     <string name="koneksi_error">Koneksi error</string>
     <string name="List">Other Conversion</string>
+    <string name="notif_title">Ada hewan baru!</string>
+    <string name="notif_text">Cek sekarang biar nggak penasaran..</string>
+
 </resources>
